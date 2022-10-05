@@ -11,17 +11,24 @@ function getMovies(){
     fetch(moviesURL).then(response => response.json().then(data => {
         console.log(data)
         function printMovies(data) {
-//This empties out the card
             data.forEach((movies, i) => {
                 $("#moviesOutput").append(`
-                   <p>${data[i].title}</p>
-                   <p>${data[i].rating}</p>
-                    <img src="${data[i].poster}" alt="Movie Poster" style="width:200px; height:300px">
-                     <p>${data[i].genre}</p>
-                      <p>${data[i].plot}</p>
-            
-                 
-                `);
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="${data[i].poster}" class="img-fluid rounded-start" alt="Movie Poster" style="width:200px; height:300px">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">${data[i].title}</h5>
+                    <p class="card-text">${data[i].plot}</p>
+                    <p class="card-text"><small class="text-muted">${data[i].genre}</small></p>
+                    <p class="card-text"><small class="text-muted">${data[i].rating}</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+                  `);
             });
         }
         printMovies(data);
