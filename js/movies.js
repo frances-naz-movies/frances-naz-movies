@@ -1,12 +1,9 @@
-
-
 //https://glitch.com/second-workable-airship
-
-const booksURL = "https://second-workable-airship.glitch.me/books";
 
 const moviesURL = "https://second-workable-airship.glitch.me/movies";
 
 //The R in CRUD: Read
+
 function getMovies(){
     fetch(moviesURL).then(response => response.json().then(data => {
         console.log(data)
@@ -29,6 +26,8 @@ function getMovies(){
               </div>
             </div>
                   `);
+
+
             });
         }
         printMovies(data);
@@ -38,85 +37,48 @@ function getMovies(){
 
 getMovies();
 
-// The C in CRUD: Create:
-const booktoPost = {
-    title: "Hello",
-    author: {
-        firstName: "Ralph",
-        lastName: "Mason"
+$("#addMovieSubmit").click(function(e){
+    e.preventDefault();
+
+    const movieToPOST = {
+        title: $("#movie-title").val(),
+        rating: $("#movie-rating").val(),
+        genre:$("#movie-genre").val(),
+        plot: $("#movie-plot").val(),
     }
-}
 
-const postOptions = {
-    method: 'POST',
-    headers: {
-        'Content-Type' : 'application/json'
-    },
-    body: JSON.stringify(booktoPost)
-}
+    $('#exampleModal').modal('hide');
 
-function getBooks(){
-    fetch(booksURL).then(response => response.json().then(data => console.log(data)))
-}
-
-
-
+    const postOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(movieToPOST)
+    }
+    function addMovie(){
+        fetch(moviesURL, postOptions).then(response => response.json().then(data => console.log(data)))
+    }
+    addMovie();
 
 
-// let modification = {
-//     title: "Hello, again"
-// }
-
-// const patchOptions = {
-//     method: 'PATCH',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(modification)
-// }
-
-// fetch(booksURL + '/1', patchOptions).then(getBooks);
-//
-// modification = {
-//     title: "Goodbye",
-//     author: {
-//         firstName: "John",
-//         lastName: "Mason"
-//     }
-// }
-//
-// const putOptions = {
-//     method: 'PUT',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(modification)
-// }
-//
-// fetch(booksURL + '/1', putOptions).then(getBooks);
-//
-// // The D in CRUD -- Delete
-// const deleteOptions = {
-//     method: 'DELETE',
-//     headers: {
-//         'Content-Type' : 'application/json'
-//     }
-// }
-// fetch(booksURL + '/1', deleteOptions).then(getBooks);
-
-const exampleModal = document.getElementById('exampleModal')
-exampleModal.addEventListener('show.bs.modal', event => {
-    // Button that triggered the modal
-    const button = event.relatedTarget
-    // Extract info from data-bs-* attributes
-    const recipient = button.getAttribute('data-bs-whatever')
-    // If necessary, you could initiate an AJAX request here
-    // and then do the updating in a callback.
-    //
-    // Update the modal's content.
-    const modalTitle = exampleModal.querySelector('.modal-title')
-    const modalBodyInput = exampleModal.querySelector('.modal-body input')
-
-    modalTitle.textContent = `New message to ${recipient}`
-    modalBodyInput.value = recipient
 })
+
+
+
+// const exampleModal = document.getElementById('exampleModal')
+// exampleModal.addEventListener('show.bs.modal', event => {
+//     // Button that triggered the modal
+//     const button = event.relatedTarget
+//     // Extract info from data-bs-* attributes
+//     const recipient = button.getAttribute('data-bs-whatever')
+//     // If necessary, you could initiate an AJAX request here
+//     // and then do the updating in a callback.
+//     //
+//     // Update the modal's content.
+//     const modalTitle = exampleModal.querySelector('.modal-title')
+//     const modalBodyInput = exampleModal.querySelector('.modal-body input')
+//
+//     modalTitle.textContent = `New message to ${recipient}`
+//     modalBodyInput.value = recipient
+// })
