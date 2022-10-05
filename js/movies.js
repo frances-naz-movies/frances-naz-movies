@@ -8,7 +8,25 @@ const moviesURL = "https://second-workable-airship.glitch.me/movies";
 
 //The R in CRUD: Read
 function getMovies(){
-    fetch(moviesURL).then(response => response.json().then(data => console.log(data)))
+    fetch(moviesURL).then(response => response.json().then(data => {
+        console.log(data)
+        function printMovies(data) {
+//This empties out the card
+            data.forEach((movies, i) => {
+                $("#moviesOutput").append(`
+                   <p>${data[i].title}</p>
+                   <p>${data[i].rating}</p>
+                    <img src="${data[i].poster}" alt="Movie Poster">
+                     <p>${data[i].genre}</p>
+                      <p>${data[i].plot}</p>
+            
+                 
+                `);
+            });
+        }
+        printMovies(data);
+
+    }))
 }
 
 getMovies();
@@ -33,6 +51,7 @@ const postOptions = {
 function getBooks(){
     fetch(booksURL).then(response => response.json().then(data => console.log(data)))
 }
+
 
 
 // let modification = {
