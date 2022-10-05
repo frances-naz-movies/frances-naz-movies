@@ -61,7 +61,7 @@ $("#addMovieSubmit").click(function(e){
 
     const movieToPOST = {
         title: $("#movie-title").val(),
-        rating: $("#movie-rating").val(),
+        rating: $("#quantity").val(),
         genre:$("#movie-genre").val(),
         plot: $("#movie-plot").val(),
         poster: $("#movie-poster").val(),
