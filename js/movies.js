@@ -16,7 +16,7 @@ function getMovies(){
                 $("#moviesOutput").append(`
                    <p>${data[i].title}</p>
                    <p>${data[i].rating}</p>
-                    <img src="${data[i].poster}" alt="Movie Poster">
+                    <img src="${data[i].poster}" alt="Movie Poster" style="width:200px; height:300px">
                      <p>${data[i].genre}</p>
                       <p>${data[i].plot}</p>
             
