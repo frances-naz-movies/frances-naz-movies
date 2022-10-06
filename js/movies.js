@@ -55,7 +55,7 @@ function getMovies(){
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="addMovieSubmit">Add Movie</button>
+                        <button type="submit" class="btn btn-primary" id="addMovieSubmit-edit">Add Movie</button>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@ function getMovies(){
             });
         }
         printMovies(data);
-
+        //=========================DELETE BUTTON====================================
         $(".deleteButton").on('click', function () {
             console.log($(this).attr("data-id"))
             const deleteOptions = {
@@ -95,25 +95,11 @@ function getMovies(){
                 getMovies();
             })
         })
-
-        $(".editButton").on('click', function () {
+        //======================END OF DELETE BUTTON====================================
+        $("#addMovieSubmit-edit").on('click', function (e) {
             console.log("I work");
-            $('#moviesOutput').append(`
-            
-            
-            
-            
-            `)
-            // const deleteOptions = {
-            //     method: 'DELETE',
-            //     headers: {
-            //         'Content-Type' : 'application/json'
-            //     }
-            // }
-            // fetch(moviesURL + "/" + $(this).attr("data-id"), deleteOptions).then(function(){
-            //     $("#moviesOutput").empty();
-            //     getMovies();
-            //})
+            e.preventDefault();
+            $('#editModal').modal('hide');
         })
 
     }))
@@ -121,6 +107,7 @@ function getMovies(){
 
 getMovies();
 
+//=========================ADD A MOVIE==============================================
 $("#addMovieSubmit").click(function(e){
     e.preventDefault();
 
@@ -150,3 +137,4 @@ $("#addMovieSubmit").click(function(e){
     addMovie();
 
 })
+//===============================END OF ADD A MOVIE========================================
