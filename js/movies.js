@@ -38,6 +38,7 @@ function getMovies(){
 
             });
             $(".editButton").on('click', function(){
+                let movieID = $(this).attr("data-edit-id")
                 $("#movie-title-edit").attr("value", $(this).attr("data-title"))
                 $("#movie-plot-edit").attr("value", $(this).attr("data-plot"));
                 $("#movie-rating-edit").attr("value", $(this).attr("data-rating"));
@@ -45,8 +46,28 @@ function getMovies(){
                 $("#movie-poster-edit").attr("value", $(this).attr("data-poster"));
 
                 $("#addMovieSubmit-edit").on('click', function (e) {
-                    console.log("I work");
+                    console.log($(this))
                     e.preventDefault();
+                    console.log($("#movie-title-edit").val())
+                    let movieModification = {
+                        title: $("#movie-title-edit").val(),
+                        rating: $("#movie-rating-edit").val(),
+                        genre:$("#movie-genre-edit").val(),
+                        plot: $("#movie-plot-edit").val(),
+                        poster: $("#movie-poster-edit").val(),
+                    }
+                    const patchOptions = {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type' : 'application/json'
+                        },
+                        body: JSON.stringify(movieModification)
+
+                    }
+                    fetch(moviesURL + "/" + movieID, patchOptions).then(function(){
+                        $("#moviesOutput").empty();
+                        getMovies();
+                    });
                 })
             })
 
@@ -56,6 +77,7 @@ function getMovies(){
         //=========================DELETE BUTTON====================================
         $(".deleteButton").on('click', function () {
             console.log($(this).attr("data-id"))
+
             const deleteOptions = {
                 method: 'DELETE',
                 headers: {
