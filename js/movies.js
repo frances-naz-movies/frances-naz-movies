@@ -39,50 +39,11 @@ function getMovies(){
             });
             $(".editButton").on('click', function(){
                 $("#moviesOutput").append(`
-                <div class="editModal modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit a Movie</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="movie-title-edit" class="col-form-label">Movie Title:</label>
-                                <input type="text" class="form-control" id="movie-title-edit" value="${$(this).attr("data-title")}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="movie-plot-edit" class="col-form-label">Plot:</label>
-                                <textarea class="form-control" id="movie-plot-edit" placeholder="${$(this).attr("data-plot")}"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="quantity-edit" class="col-form-label">Movie Rating:</label>
-                                <input type="number" class="form-control" name="quantity" id="quantity-edit" min="1" max="5" value="${$(this).attr("data-rating")}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="movie-genre-edit" class="col-form-label">Genre:</label>
-                                <input type="text" class="form-control" id="movie-genre-edit" value="${$(this).attr("data-genre")}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="movie-poster-edit" class="col-form-label">Movie Poster Link:</label>
-                                <textarea class="form-control" id="movie-poster-edit" placeholder="${$(this).attr("data-poster")}"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="addMovieSubmit-edit">Add Movie</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
+                
                 `)
                 $("#addMovieSubmit-edit").on('click', function (e) {
                     console.log("I work");
                     e.preventDefault();
-                    $('#editModal').modal('hide');
                 })
             })
 
