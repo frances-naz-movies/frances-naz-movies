@@ -38,9 +38,12 @@ function getMovies(){
 
             });
             $(".editButton").on('click', function(){
-                $("#moviesOutput").append(`
-                
-                `)
+                $("#movie-title-edit").attr("value", $(this).attr("data-title"))
+                $("#movie-plot-edit").attr("value", $(this).attr("data-plot"));
+                $("#movie-rating-edit").attr("value", $(this).attr("data-rating"));
+                $("#movie-genre-edit").attr("value", $(this).attr("data-genre"));
+                $("#movie-poster-edit").attr("value", $(this).attr("data-poster"));
+
                 $("#addMovieSubmit-edit").on('click', function (e) {
                     console.log("I work");
                     e.preventDefault();
