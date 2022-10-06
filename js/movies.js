@@ -10,7 +10,7 @@ function getMovies(){
         function printMovies(data) {
             data.forEach((movies, i) => {
                 $("#moviesOutput").append(`
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3" style="max-width: 100%; background-color: #0b192f; color: white; border-radius: 60px; margin: 30px 30px">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="editButton bi bi-pencil-square" data-id="editButton" viewBox="0 0 16 16" style="position:absolute; margin-left: 500px; margin-top: 5px">
               <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
               <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -21,14 +21,14 @@ function getMovies(){
             </svg>
               <div class="row g-0">
                 <div class="col-md-4">
-                  <img src="${data[i].poster}" class="img-fluid rounded-start" alt="Movie Poster" style="width:200px; height:300px">
+                  <img src="${data[i].poster}" class="img-fluid rounded-start" alt="Movie Poster" style="width:500px; height:700px; border-radius: 30px">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title">${data[i].title}</h5>
                     <p class="card-text">${data[i].plot}</p>
                     <p class="card-text"><small class="text-muted">${data[i].genre}</small></p>
-                    <p class="card-text"><small class="text-muted">${data[i].rating}</small></p>
+                    <p class="card-text"><small class="text-muted">Rating: ${data[i].rating}</small></p>
                   </div>
                 </div>
               </div>
@@ -53,7 +53,13 @@ function getMovies(){
         })
 
         $(".editButton").on('click', function () {
-            console.log("I work")
+            console.log("I work");
+            $('#moviesOutput').append(`
+            
+            
+            
+            
+            `)
             // const deleteOptions = {
             //     method: 'DELETE',
             //     headers: {

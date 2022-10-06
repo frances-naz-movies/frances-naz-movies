@@ -6,58 +6,69 @@
     <!-- BOOTSTRAP CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!--End Of BootStrap--------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: #32327a">
 <div class="row">
-    <div class="col">
-        <div id="moviesOutput"></div>
+    <div class="col-9">
+        <h1 style="margin: 1em 2em; color: #ced0fa; font-family: 'Limelight', cursive;">My Movie Collection</h1>
     </div>
 
-
-
-    <div class="col">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                data-bs-whatever="@mdo">Add a Movie</button>
-
+    <div class="col-3 mt-5">
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        data-bs-whatever="addMovie" style="background-color:#348163; border-radius:30px">Add a Movie</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add a Movie</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add a Movie</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="movie-title" class="col-form-label">Movie Title:</label>
+                        <input type="text" class="form-control" id="movie-title">
                     </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="movie-title" class="col-form-label">Movie Title:</label>
-                                <input type="text" class="form-control" id="movie-title">
-                            </div>
-                            <div class="mb-3">
-                                <label for="movie-plot" class="col-form-label">Plot:</label>
-                                <textarea class="form-control" id="movie-plot"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="quantity" class="col-form-label">Movie Rating:</label>
-                                <input type="number" class="form-control" name="quantity" id="quantity" min="1" max="5">
-                            </div>
-                            <div class="mb-3">
-                                <label for="movie-genre" class="col-form-label">Genre:</label>
-                                <input type="text" class="form-control" id="movie-genre">
-                            </div>
-                            <div class="mb-3">
-                                <label for="movie-plot" class="col-form-label">Movie Poster Link:</label>
-                                <textarea class="form-control" id="movie-poster"></textarea>
-                            </div>
-                        </form>
+                    <div class="mb-3">
+                        <label for="movie-plot" class="col-form-label">Plot:</label>
+                        <textarea class="form-control" id="movie-plot"></textarea>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="addMovieSubmit">Add Movie</button>
+                    <div class="mb-3">
+                        <label for="quantity" class="col-form-label">Movie Rating:</label>
+                        <input type="number" class="form-control" name="quantity" id="quantity" min="1" max="5">
                     </div>
-                </div>
+                    <div class="mb-3">
+                        <label for="movie-genre" class="col-form-label">Genre:</label>
+                        <input type="text" class="form-control" id="movie-genre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="movie-plot" class="col-form-label">Movie Poster Link:</label>
+                        <textarea class="form-control" id="movie-poster"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="addMovieSubmit">Add Movie</button>
             </div>
         </div>
     </div>
+</div>
+    </div>
+</div>
+
+
+        <div id="moviesOutput"></div>
+
+
+
+
+
+
+
 
 
 
