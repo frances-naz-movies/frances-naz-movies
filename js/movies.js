@@ -5,10 +5,9 @@ function getMovies(){
         function printMovies(data) {
             //==========For each to Loop through the movies and display them=============
             data.forEach((movies, i) => {
-                console.log(data[i]);
                 //=======This pushes out the movies and their info into cards====================
                 $("#moviesOutput").append(`
-                    <div class="card mb-3" style="max-width: 100%; background-color: #0b192f; border-radius: 60px; margin: 30px 30px">
+                    <div class="card mb-3" style="width: 45%; height: 100%; background-color: #0b192f; border-radius: 60px; margin: 30px 30px">
                     ${ /* ========SVG for the delete button================== */'' }
                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="deleteButton bi bi-trash" data-id="${data[i].id}" viewBox="0 0 16 16" style="position:absolute; margin-left: 520px; margin-top: 5px; color: white;">
                       <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/><path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -21,7 +20,7 @@ function getMovies(){
                     </svg>             
                     <div class="row g-0">
                     <div class="col-md-4">
-                    <img src="${data[i].poster}" class="img-fluid rounded-start" alt="Movie Poster" style="width:500px; height:700px; border-radius: 30px">
+                    <img src="${data[i].poster}" class="img-fluid rounded-start" alt="Movie Poster" style="width:100%; height: 100%; border-radius: 30px">
                     </div>
                     <div class="col-md-8">
                     <div class="card-body" style="color: white;">
